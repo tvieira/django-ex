@@ -18,7 +18,7 @@
   "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see hhttps://github.com/tvieira/django-ex/blob/master/README.md.",
   "labels": {
       "template": "django-latest-psql",
-      "app": "django-latest-psql"
+      "app": "${NAME}"
   },
   "objects": [
     {
@@ -160,7 +160,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "django-latest-psql"
+                "${NAME}"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -186,7 +186,7 @@
           "spec": {
             "containers": [
               {
-                "name": "django-latest-psql",
+                "name": "${NAME}",
                 "image": " ",
                 "ports": [
                   {
@@ -506,6 +506,7 @@
     {
       "name": "DATABASE_SERVICE_NAME",
       "displayName": "Database Service Name",
+      "description": "Db service name",
       "required": true,
       "value": "postgresql"
     },
@@ -513,24 +514,27 @@
       "name": "DATABASE_ENGINE",
       "displayName": "Database Engine",
       "required": true,
-      "description": "Database engine: postgresql, mysql or sqlite (default).",
+      "description": "Db engine: postgresql, mysql or sqlite (default).",
       "value": "postgresql"
     },
     {
       "name": "DATABASE_NAME",
       "displayName": "Database Name",
+      "description": "Db name",
       "required": true,
       "value": "djangodb"
     },
     {
       "name": "DATABASE_USER",
       "displayName": "Database Username",
+      "description": "Db username",
       "required": true,
       "value": "django"
     },
     {
       "name": "DATABASE_PASSWORD",
       "displayName": "Database User Password",
+      "description": "Db password",
       "generate": "expression",
       "from": "[a-zA-Z0-9]{16}"
     },
