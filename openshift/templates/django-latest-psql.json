@@ -2,23 +2,23 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "django-psql-persistent",
+    "name": "django-latest-psql",
     "annotations": {
       "openshift.io/display-name": "Django + PostgreSQL",
-      "description": "An example Django application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/django-ex/blob/master/README.md.",
+      "description": "An example Django application with a PostgreSQL database. For more information about using this template, including OpenShift considerations, see https://github.com/tvieira/django-ex/blob/master/README.md.",
       "tags": "quickstart,python,django",
       "iconClass": "icon-python",
       "openshift.io/long-description": "This template defines resources needed to develop a Django based application, including a build configuration, application deployment configuration, and database deployment configuration.",
-      "openshift.io/provider-display-name": "Red Hat, Inc.",
-      "openshift.io/documentation-url": "https://github.com/sclorg/django-ex",
-      "openshift.io/support-url": "https://access.redhat.com",
+      "openshift.io/provider-display-name": "Tiago M. Vieira",
+      "openshift.io/documentation-url": "https://github.com/tvieira/django-ex",
+      "openshift.io/support-url": "https://github.com/tvieira/django-ex",
       "template.openshift.io/bindable": "false"
     }
   },
-  "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/sclorg/django-ex/blob/master/README.md.",
+  "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see hhttps://github.com/tvieira/django-ex/blob/master/README.md.",
   "labels": {
-      "template": "django-psql-persistent",
-      "app": "django-psql-persistent"
+      "template": "django-latest-psql",
+      "app": "django-latest-psql"
   },
   "objects": [
     {
@@ -160,7 +160,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "django-psql-persistent"
+                "django-latest-psql"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -186,7 +186,7 @@
           "spec": {
             "containers": [
               {
-                "name": "django-psql-persistent",
+                "name": "django-latest-psql",
                 "image": " ",
                 "ports": [
                   {
@@ -428,7 +428,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "django-psql-persistent"
+      "value": "django-latest-psql"
     },
     {
       "name": "NAMESPACE",
@@ -477,12 +477,13 @@
       "displayName": "Git Repository URL",
       "required": true,
       "description": "The URL of the repository with your application source code.",
-      "value": "https://github.com/sclorg/django-ex.git"
+      "value": "https://github.com/tvieira/django-ex.git"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
       "displayName": "Git Reference",
-      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch."
+      "description": "Set this to a branch name, tag or other ref of your repository if you are not using the default branch.",
+      "value": "upgrade-django"
     },
     {
       "name": "CONTEXT_DIR",
@@ -519,7 +520,7 @@
       "name": "DATABASE_NAME",
       "displayName": "Database Name",
       "required": true,
-      "value": "default"
+      "value": "djangodb"
     },
     {
       "name": "DATABASE_USER",
